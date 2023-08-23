@@ -3313,6 +3313,7 @@ input, select, textarea {
 		min-height: 100vh;
 	}
 
+
 		#intro input, #intro select, #intro textarea {
 			color: #ffffff;
 		}
@@ -4685,5 +4686,37 @@ input, select, textarea {
 			box-shadow: 0 0 1.5rem 0 rgba(0, 0, 0, 0.2);
 			visibility: visible;
 		}
+
+	}
+
+
+	#intro_page2 {
+		color: #ffffff;
+		padding: 8rem 4rem 6rem 4rem ;
+		/* -moz-align-items: center;
+		-webkit-align-items: center;
+		-ms-align-items: center;
+		align-items: center;
+		display: -moz-flex;
+		display: -webkit-flex;
+		display: -ms-flex;
+		display: flex;
+		-moz-flex-direction: column;
+		-webkit-flex-direction: column;
+		-ms-flex-direction: column;
+		flex-direction: column;
+		-moz-justify-content: -moz-flex-end;
+		-webkit-justify-content: -webkit-flex-end;
+		-ms-justify-content: -ms-flex-end;
+		justify-content: flex-end;
+		-moz-transition: opacity 1s ease, -moz-transform 1s ease;
+		-webkit-transition: opacity 1s ease, -webkit-transform 1s ease;
+		-ms-transition: opacity 1s ease, -ms-transform 1s ease;
+		transition: opacity 1s ease, transform 1s ease;
+		position: relative;
+		cursor: default;
+		text-align: center;
+		z-index: 1;
+		min-height: 100vh; */
 
 	}
