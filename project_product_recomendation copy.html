@@ -1,0 +1,229 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>Jahnavi Gupta</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper" class="fade-in">
+
+				<!-- Intro -->
+					<div id="intro">
+						
+						<!-- <h2><a href="#">And this is a<br />
+							massive headline</a></h2> -->
+						<!-- <h1>Jahnavi Gupta</h1>
+						<p>Computer Engineer | Software Developer | Web Developer   
+						<p>Master's in Computer Science at New York Institute of Technology '24 </p> -->
+							<!-- <a href="https://html5up.net/license">Creative Commons license</a>.</p> -->
+						<!-- <ul class="actions">
+							<li><a href="#header" class="button icon solid solo fa-arrow-down scrolly">Continue</a></li>
+						</ul> -->
+
+                        <header id="header">
+                            <a href="project_page.html" class="logo">My Projects</a>
+                        </header>
+					</div>
+				<!-- Header -->
+				<header id="header">
+					<a href="project_product_recomendation.html" class="logo" target="_blank">Product Recommendation System</a>
+				</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li><a href="index.html">About Me</a></li>
+							<li class="active" ><a href="project_page.html">My Porjects</a></li>
+							<li><a href="Jahnavi Gupta-RESUME.pdf" target="_blank">Resume</a><li>
+							<li><a href="web_design_page.html">Design Portfolio</a></li>
+							<li><a href="elements.html">Lets Connect</a></li>
+						</ul>
+						<ul class="icons">
+							<li><a href="https://www.linkedin.com/in/jahnavigupta/" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+							<li><a href="https://github.com/JahnaviSGupta" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+							<li><a href="https://www.instagram.com/jahnaviiig/" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+						<!-- Featured Post -->
+							<!-- <article class="post featured">
+								<header class="major">
+									<span class="date">April 25, 2017</span>
+									<h2><a href="#">And this is a<br />
+									massive headline</a></h2>
+									<p>Aenean ornare velit lacus varius enim ullamcorper proin aliquam<br />
+									facilisis ante sed etiam magna interdum congue. Lorem ipsum dolor<br />
+									amet nullam sed etiam veroeros.</p>
+								</header>
+								<a href="#" class="image main"><img src="images/pic01.jpg" alt="" /></a>
+								<ul class="actions special">
+									<li><a href="#" class="button large">Full Story</a></li>
+								</ul>
+							</article> -->
+
+						<!-- Posts -->
+						<section class="post">
+							<!-- <header class="major"> -->
+								<!-- <h1>Elements<br />
+								Reference</h1> -->
+							<!-- </header> -->
+
+							<!-- Text stuff -->
+							<!-- PHASE 1 -->
+									<h2>Abstract</h2>
+										<p>The recommendation system we built is based on item-item collaborative filtering. We’ll build a multi dimensional vector representation of a product via a co-occurrence matrix and find similar products measured by the cosine similarity between all product vectors.
+										</p>
+										<p>In terms of application, this system was built to power e-commerce product to product recommendations. For example when a customer clicks on a product, most sites will show a product detail page (PDP) and commonly you might see more products shared on that page under headings such as ‘You Might Also Like’ or ‘Similar Products’.
+										</p>
+							<!-- PHASE 2 -->
+							<h2>Concept of Co-occurrence Matrix</h2>
+										<p>
+										<span class="image left"><img src="images/Picture1 Product.png" alt="" /></span>
+
+											The data that we utilized was simply customer order data and specifically we were interested in orders where products are purchased with other products.
+										</p>
+										<p>We have 3 unique items, two different colored tooth brushes which were both independently purchased with toothpaste. Using this information we are able to build a bridge from the blue toothbrush to the green toothbrush via the toothpaste.
+										</p>
+										<span class="image right"><img src="images/Picture2 Product.png" alt="" /></span>
+										<p>Now imagine that we have thousands of orders. You’d probably expect that both colors of toothbrushes occur with things like floss, mouthwash, etc. 
+
+											We can utilize these co-occurrence of products to build a multi dimensional vector representation of all the products in our catalogue.
+											</p>
+											<!-- Image 2 -->
+										<h2>Cosine Similarity</h2>
+
+												<p >To determine if a product is similar to another product we take the cosine similarity between their vector representations from our co-occurrence matrix and receive a score between -1 and 1. 
+												
+												A score of 1 are vectors that are in the same direction and a score of -1 is an opposite vector.
+											</p>
+											<h2>Data</h2>
+											<p>As mentioned earlier our data is customer order data. For most datasets you’ll probably want to join an order level table to an order line level table so you can see all the items that occurred within a specific order id.</p>
+											<span class="image fit"><img src="images/Picture3 product.png" alt="" /></span>
+
+											<!-- Image 3 -->
+
+											<!-- model code -->
+											<h2>Model Code</h2>	
+											<h3>Library Dependencies:</h3>
+											<p><span class="image fit"><img src="images/Picture4 product.png" alt="" /></span></p>
+											<p>We first loaded customer order data in the format above as a pandas data frame named sales_df.</p>
+											<p>Next we pivoted it where each row is an order and each column is a product and the values are the counts of the products in each of the orders. </p>
+											<p>Once you’ve loaded your data you’ll need to pivot it where each row is an order and each column is a product and the values are the counts of the products in each of the orders.</p>
+											<p><span class="image fit"><img src="images/Picture5product.png" alt="" /></span></p>
+											
+											<p>Next we transform our pivot table into a co-occurrence matrix by taking the dot product of the pivot table and its transpose.
+												And to transform the co-occurrence matrix into a matrix of cosine similarities between our products we utilize the cosine_similarity function from sklearn.
+												</p>
+												<p><span class="image fit"><img src="images/Picture6product.png" alt="" /></span></p>
+												<p><span class="image fit"><img src="images/Picture7product.png" alt="" /></span></p>
+												<h2>Model Validation</h2>	
+												<h3>For Each Product Category:</h3>
+											<p>Count(Best Recommendation for Each Product in Category)/ Count(Products in Category) = % of Recommendations in Same Category
+												This was to have limited and most suitable products.
+												</p>
+												<h3>Example:</h3>
+											<p>We had 735 wellness products we generated recommendations for and based on our best cosine similarity for each wellness product we had 720 recommendations that were in the wellness category, or 98% same category recommendations. With such a high percentage of same category recommendations we can feel more confident that we have a strong signal in our purchase data to power our model.</p>
+												
+												<p>Performed an AB test to limit the output and avoid any random product to be recommended with out any context.</p>
+												
+												<p>To find the right sample size threshold for your model you can evaluate the model validation metric (% of Recommendations in Same Category)</p>
+												
+												<h2>Deployment</h2>
+											<p>We output a JSON file with the top n recommendations into an S3 bucket. This JSON file is then picked up by our platform engineering team and loaded into a Postgres database which will be used to serve products on the front end.
+												Generated Top Five Highest Scoring Recommendations and JSON Output
+												</p>
+												<h2>Conclusion</h2>
+											<p>With that we have created an end to end product recommendation system for similar products simply with historical sales data. With all models the quality of your model outputs will be dependent on the quality of your data.
+											</p>
+
+						</section>
+
+						<!-- Footer for Next Page-->
+							<footer>
+								<!-- <div class="pagination">
+									<a href="#" class="previous">Prev</a>
+									<a href="#" class="page active">1</a>
+									<a href= "page2.html" copy class="page">2</a> -->
+									<!-- <a href="#" class="page">3</a> 
+									<span class="extra">&hellip;</span>
+									<a href="#" class="page">8</a>
+									<a href="#" class="page">9</a>
+									<a href="#" class="page">10</a> -->
+									<!-- <a href="#" class="next">Next</a> -->
+								</div>
+							</footer>
+
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<!-- <section>
+							<form method="post" action="#">
+								<div class="fields">
+									<div class="field">
+										<label for="name">Name</label>
+										<input type="text" name="name" id="name" />
+									</div>
+									<div class="field">
+										<label for="email">Email</label>
+										<input type="text" name="email" id="email" />
+									</div>
+									<div class="field">
+										<label for="message">Message</label>
+										<textarea name="message" id="message" rows="3"></textarea>
+									</div>
+								</div>
+								<ul class="actions">
+									<li><input type="submit" value="Send Message" /></li>
+								</ul>
+							</form>
+						</section> -->
+						<section class="split contact">
+							<section class="alt">
+								<h3>Location</h3>
+								<p>New York<br />
+								<!-- Nashville, TN 00000-0000</p> -->
+							</section>
+							<section>
+								<h3>Phone</h3>
+								<p><a href="#">848-234-9852</a></p>
+							</section>
+							<section>
+								<h3>Email</h3>
+								<p><a href="#">jahnavisgupta@gmail.com</a></p>
+							</section>
+							<section>
+								<h3>Social</h3>
+								<ul class="icons alt">
+									<li><a href="https://www.linkedin.com/in/jahnavigupta/" class="icon brands alt fa-linkedin"><span class="label">Twitter</span></a></li>
+									<li><a href="https://github.com/JahnaviSGupta" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+									<!-- <li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li> -->
+									<li><a href="https://www.instagram.com/jahnaviiig/" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
+								</ul>
+							</section>
+						</section>
+					</footer>
+				<!-- Copyright -->
+					<div id="copyright">
+						<ul><li>&copy; Copyright 2023 @ Jahnavi Gupta</li><li><a href="https://html5up.net">HTML5 UP</a></li></ul>
+					</div>
+			</div>
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
