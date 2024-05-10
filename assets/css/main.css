@@ -2619,11 +2619,19 @@ input, select, textarea {
 		}
 
 		
-
 		.image.fit {
 			display: block;
 			margin: 2.5rem 0;
 			width: 100%;
+		}
+
+		.image.center {
+			text-align: center;
+		}
+		
+		.image.center img {
+			display: inline-block;
+			vertical-align: middle;
 		}
 	
 			.image.fit:first-child {
